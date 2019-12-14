@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a81a1e7c8a154de3bd4790d6f67a5e0a" Name="Diagram1" >
+        <EntityTypeShape EntityType="HumraahModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="HumraahModel.Address" Width="1.5" PointX="0.75" PointY="3.25" />
+        <EntityTypeShape EntityType="HumraahModel.Ambulance" Width="1.5" PointX="7.5" PointY="2.625" />
+        <EntityTypeShape EntityType="HumraahModel.AspNetRole" Width="1.5" PointX="7.75" PointY="8.5" />
+        <EntityTypeShape EntityType="HumraahModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="7" />
+        <EntityTypeShape EntityType="HumraahModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="9.75" />
+        <EntityTypeShape EntityType="HumraahModel.AspNetUser" Width="1.5" PointX="10" PointY="7.375" />
+        <EntityTypeShape EntityType="HumraahModel.Booking" Width="1.5" PointX="5.25" PointY="4.875" />
+        <EntityTypeShape EntityType="HumraahModel.Driver" Width="1.5" PointX="5.25" PointY="8.5" />
+        <EntityTypeShape EntityType="HumraahModel.Station" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="HumraahModel.Type" Width="1.5" PointX="5.25" PointY="2.125" />
+        <EntityTypeShape EntityType="HumraahModel.User" Width="1.5" PointX="3" PointY="4.625" />
+        <AssociationConnector Association="HumraahModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="HumraahModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="HumraahModel.AspNetUserRoles" />
+        <AssociationConnector Association="HumraahModel.AmbulanceDriver" />
+        <AssociationConnector Association="HumraahModel.StationAmbulance" />
+        <AssociationConnector Association="HumraahModel.AmbulanceType" />
+        <AssociationConnector Association="HumraahModel.AmbulanceBooking" />
+        <AssociationConnector Association="HumraahModel.BookingUser" />
+        <AssociationConnector Association="HumraahModel.UserAddress" />
+        <AssociationConnector Association="HumraahModel.StationAddress" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

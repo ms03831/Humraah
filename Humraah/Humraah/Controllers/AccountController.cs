@@ -9,6 +9,19 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Humraah.Models;
+using System;
+using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using Humraah.DAL;
+using Humraah.Models;
+
 
 namespace Humraah.Controllers
 {
@@ -18,8 +31,17 @@ namespace Humraah.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        ApplicationUser user;
+        string pwd;
+        IdentityResult result;
+
+        ApplicationDbContext context;
+        private HumraahContext db = new HumraahContext();
+
         public AccountController()
         {
+            context = new ApplicationDbContext();
+           
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -151,12 +173,24 @@ namespace Humraah.Controllers
         {
             if (ModelState.IsValid)
             {
+                user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                pwd = model.Password;
+                result = await UserManager.CreateAsync(user, model.Password);
+                
                 if (model.Role == true)
                 {
+                    //Assign Role to user Here 
+                    //Ends Here
+                    await this.UserManager.AddToRoleAsync(user.Id, "Station");
                     return RedirectToAction("RegisterStation", "Account");
                 }
+                else
+                {
+                    await this.UserManager.AddToRoleAsync(user.Id, "User");
+                    return RedirectToAction("RegisterUser", "Account");
+                }
             }
-
+           
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -164,28 +198,18 @@ namespace Humraah.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RegisterUser(RegisterViewModel model)
+        public async Task<ActionResult> RegisterUser(User model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
                     return RedirectToAction("About", "Home");
                 }
                 AddErrors(result);
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
@@ -196,33 +220,31 @@ namespace Humraah.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult RegisterUser()
+        {
+            return View();
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> RegisterStation(RegisterViewModel model)
+        public async Task<ActionResult> RegisterStation(Station model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    model.Id = user.Id;
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
                     return RedirectToAction("Contact", "Home");
                 }
                 AddErrors(result);
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]

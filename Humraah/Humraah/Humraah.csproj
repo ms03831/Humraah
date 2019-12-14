@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -170,6 +172,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="DAL\Address.cs" />
+    <Compile Include="DAL\Ambulance.cs" />
+    <Compile Include="DAL\AspNetRole.cs" />
+    <Compile Include="DAL\AspNetUser.cs" />
+    <Compile Include="DAL\AspNetUserClaim.cs" />
+    <Compile Include="DAL\AspNetUserLogin.cs" />
+    <Compile Include="DAL\Booking.cs" />
+    <Compile Include="DAL\C__MigrationHistory.cs" />
+    <Compile Include="DAL\Driver.cs" />
+    <Compile Include="DAL\HumraahContext.cs" />
+    <Compile Include="DAL\Station.cs" />
+    <Compile Include="DAL\Type.cs" />
+    <Compile Include="DAL\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,9 +252,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\RegisterStation.cshtml" />
+    <Content Include="Views\Account\RegisterUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
