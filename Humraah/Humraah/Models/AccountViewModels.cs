@@ -62,6 +62,8 @@ namespace Humraah.Models
         public bool RememberMe { get; set; }
     }
 
+
+
     public class RegisterViewModel
     {
         [Required]
@@ -79,6 +81,10 @@ namespace Humraah.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Are you a station?")]
+        public bool Role { get; set; }
     }
 
     public class ResetPasswordViewModel
