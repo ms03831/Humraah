@@ -1,0 +1,29 @@
+﻿@model Humraah.Models.Address
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+<script src="~/Scripts/jquery-2.2.3.js"></script>
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+<script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<div class="row">
+    <div class="col-md-8">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Locality, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Locality, new { @class = "form-control", id = "TextBoxVenueLocation" })
+                @Html.ValidationMessageFor(m => m.Locality, "", new { @class = "text-danger" })
+                @Html.HiddenFor(m => m.Id, new { @id = "EventVenueId" })
+            </div>
+        </div>
+        @Html.HiddenFor(m => m.Latitude, new { @id = "EventVenueLatitude" })
+        @Html.HiddenFor(m => m.Longitude, new { @id = "EventVenueLongitude" })
+    </div>
+</div>
+    </div>
+</div> 
