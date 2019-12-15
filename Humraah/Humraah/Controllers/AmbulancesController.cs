@@ -136,6 +136,8 @@ namespace Humraah.Controllers
                     Available = ambulance.available
                 };
 
+                
+
                 db.Ambulances.Add(amb);
                 db.SaveChanges();
                 return RedirectToAction("Index");

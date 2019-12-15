@@ -208,3 +208,6 @@ C:\Users\Mudasir Hanif Shaikh\OneDrive - Habib University\fall19\webdev\project\
 C:\Users\Mudasir Hanif Shaikh\OneDrive - Habib University\fall19\webdev\project\webDevProject\Humraah\Humraah\obj\Debug\Humraah.dll
 C:\Users\Mudasir Hanif Shaikh\OneDrive - Habib University\fall19\webdev\project\webDevProject\Humraah\Humraah\obj\Debug\Humraah.pdb
 C:\Users\Mudasir Hanif Shaikh\OneDrive - Habib University\fall19\webdev\project\webDevProject\Humraah\Humraah\obj\Debug\Humraah.csprojAssemblyReference.cache
+C:\Users\Mudasir Hanif Shaikh\OneDrive - Habib University\fall19\webdev\project\webDevProject\Humraah\Humraah\bin\System.Net.Http.Extensions.dll
+C:\Users\Mudasir Hanif Shaikh\OneDrive - Habib University\fall19\webdev\project\webDevProject\Humraah\Humraah\bin\System.Net.Http.Formatting.dll
+C:\Users\Mudasir Hanif Shaikh\OneDrive - Habib University\fall19\webdev\project\webDevProject\Humraah\Humraah\bin\System.Net.Http.Primitives.dll

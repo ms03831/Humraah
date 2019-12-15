@@ -290,6 +290,19 @@ namespace Humraah.Controllers
                 Station stat = new Station { id = user_id, Organization = model.Organization, Number = 0, Address_id = AdrId };
                 db.Stations.Add(stat);
                 db.SaveChanges();
+
+                Address adr1 = new Address();
+                adr1.Locality = "Johar";
+                adr1.Lat = 24.9204M;
+                adr1.Lng = 67.1344M;
+
+                Address adr_ = db.Addresses.Find(1);
+                Console.WriteLine(adr1.Locality);
+                Console.WriteLine(adr_.Locality);
+
+                double dist = DistanceCalculator.DistanceCalculate(adr1, adr_);
+                Console.WriteLine(dist);
+
                 return RedirectToAction("About", "Home");
             }
             // If we got this far, something failed, redisplay form
