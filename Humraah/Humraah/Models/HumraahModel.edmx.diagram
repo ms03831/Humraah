@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a81a1e7c8a154de3bd4790d6f67a5e0a" Name="Diagram1" >
+      <Diagram DiagramId="a81a1e7c8a154de3bd4790d6f67a5e0a" Name="Diagram1" ZoomLevel="86" >
         <EntityTypeShape EntityType="HumraahModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="8.75" />
         <EntityTypeShape EntityType="HumraahModel.Address" Width="1.5" PointX="0.75" PointY="3.25" />
         <EntityTypeShape EntityType="HumraahModel.Ambulance" Width="1.5" PointX="7.5" PointY="2.625" />
