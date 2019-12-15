@@ -177,59 +177,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Address.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Ambulance.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Booking.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Driver.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HumraahModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HumraahModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HumraahModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HumraahModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HumraahModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\aType.cs" />
+    <Compile Include="Models\HumraahCtx.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Station.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Type.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>HumraahModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\User_.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -242,25 +195,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\HumraahModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HumraahModel.Context.cs</LastGenOutput>
-      <DependentUpon>HumraahModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\HumraahModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HumraahModel.cs</LastGenOutput>
-      <DependentUpon>HumraahModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\HumraahModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HumraahModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\HumraahModel.edmx.diagram">
-      <DependentUpon>HumraahModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

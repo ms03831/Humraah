@@ -3,6 +3,16 @@
     padding-bottom: 20px;
 }
 
+.selectBox {
+    width: 295px;
+    height: 38px;
+    padding: 0 0 0 9px;
+}
+
+select option {
+    width: 255px;
+} 
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
