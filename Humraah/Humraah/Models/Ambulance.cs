@@ -44,4 +44,39 @@ namespace Humraah.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_> User_ { get; set; }
     }
+
+    public class RegisterAmbulanceModel
+    {
+
+        [Required]
+        [Display(Name = "Driver Name")]
+        public string Driver { get; set; }
+
+        [Required]
+        [Range(01000000000, 11111111111)]
+        [Display(Name = "Driver Phone")]
+        public long DriverPhone { get; set; }
+ 
+        [Required]
+        [Range(1, 20)]
+        [Display(Name = "Capacity")]
+        public int Capacity { get; set; }
+
+        [Required]
+        [Display(Name = "Type")]
+        public string Type { get; set; }
+
+        [Required]
+        [Display(Name = "Plate")]
+        public string plate { get; set; }
+
+        [Required]
+        [Display(Name = "Color")]
+        public string color { get; set; }
+
+        [Required]
+        [Display(Name = "Is Ambulance Available?")]
+        public bool available { get; set; }
+
+    }
 }

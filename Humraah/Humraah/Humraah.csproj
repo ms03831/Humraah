@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
+    <Compile Include="Controllers\AmbulancesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -258,6 +259,11 @@
     <Content Include="Views\Addresses\Details.cshtml" />
     <Content Include="Views\Addresses\Edit.cshtml" />
     <Content Include="Views\Addresses\Index.cshtml" />
+    <Content Include="Views\Ambulances\Create.cshtml" />
+    <Content Include="Views\Ambulances\Delete.cshtml" />
+    <Content Include="Views\Ambulances\Details.cshtml" />
+    <Content Include="Views\Ambulances\Edit.cshtml" />
+    <Content Include="Views\Ambulances\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

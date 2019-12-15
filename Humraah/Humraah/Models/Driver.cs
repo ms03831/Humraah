@@ -19,7 +19,7 @@ namespace Humraah.DAL
 
         public long Phone { get; set; }
 
-        public int Name { get; set; }
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ambulance> Ambulances { get; set; }
