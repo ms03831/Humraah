@@ -1,0 +1,2 @@
+cookies : https://www.c-sharpcorner.com/uploadfile/2f73dd/cookies-in-Asp-Net-4-0/
+role based security : https://www.dotnetcurry.com/aspnet-mvc/1102/aspnet-mvc-role-based-security
