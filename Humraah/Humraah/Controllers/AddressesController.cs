@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Humraah.DAL;
+using Humraaah.Models;
 
 namespace Humraah.Controllers
 {
