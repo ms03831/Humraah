@@ -19,7 +19,7 @@ namespace Humraaah.Models
         public string User__id { get; set; }
 
         public DateTime Date { get; set; }
-
+        public bool CurrentlyActive { get; set; }
         public virtual Ambulance Ambulance { get; set; }
 
         public virtual User_ User_ { get; set; }

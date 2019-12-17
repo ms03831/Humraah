@@ -1,0 +1,42 @@
+﻿@model Humraaah.Models.Booking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ambulance.Station_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ambulance.Station_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idBooking }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

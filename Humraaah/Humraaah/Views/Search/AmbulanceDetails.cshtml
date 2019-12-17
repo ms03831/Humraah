@@ -1,0 +1,21 @@
+﻿@model Humraaah.Models.Ambulance
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+<h2>
+    Details of Ambulance and Driver
+</h2>
+
+<div class="card">
+    <img src="ambulance.jpg" alt="Ambulance" style="width:100%">
+
+    <h5>Plate: @Html.DisplayFor(model => model.Plate)</h5>
+    <h5>Color: @Html.DisplayFor(model => model.Color)</h5>
+    <h5>Driver Name: @Html.DisplayFor(model => model.Driver.Name)</h5>
+    <h5>Driver Phone: @Html.DisplayFor(model => model.Driver.Phone)</h5>
+    <p class="price">Organization: @Html.DisplayFor(model => model.Station.Organization)</p>
+    <p>@Html.ActionLink("Book", "Book", "Search" , new { id = Model.id }, new { @class = "card button" })</p>
+</div>
+

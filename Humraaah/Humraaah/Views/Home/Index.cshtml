@@ -5,8 +5,13 @@
 <div class="jumbotron" style="color:darkslategray;">
     <h1 style="color:black;">Humraah</h1>
     <p class="lead" style="color:black;">Hum or aap, Humraah!</p>
-    <p class="btn-block"> To book or register an ambulance, @Html.ActionLink("Register", "Register", "Account")</p>
-    <p class="btn-block"> Already have an account?, @Html.ActionLink("Login", "Login", "Account")</p>
+    @{
+        if (!(User.Identity.IsAuthenticated)) { 
+            <p class="btn-block"> To book or register an ambulance, @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary", @style = "color:Black" })</p>
+            <p class="btn-block"> Already have an account? @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary", @style = "color:Black" })</p>
+        }
+    }
+            <p class="btn-block"> Looking for an Ambulance? @Html.ActionLink("Search", "Index", "Search", null, new { @class = "btn btn-primary", @style = "color:Black" })</p>
 </div>
 
 
