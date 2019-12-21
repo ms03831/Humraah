@@ -285,9 +285,6 @@ namespace Humraaah.Controllers
                 Console.WriteLine(adr1.Locality);
                 Console.WriteLine(adr_.Locality);
 
-                double dist = DistanceCalculator.DistanceCalculate(adr1, adr_);
-                Console.WriteLine(dist);
-
                 return RedirectToAction("Index", "Ambulances");
             }
             // If we got this far, something failed, redisplay form
