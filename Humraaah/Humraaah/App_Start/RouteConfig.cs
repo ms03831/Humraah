@@ -12,13 +12,13 @@ namespace Humraaah
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            
             routes.MapRoute(
                 name: "Custom",
                 url: "Search/{locality}",
                 defaults: new { controller = "Search", action = "SearchByLocalityName"}
             );
-
+            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

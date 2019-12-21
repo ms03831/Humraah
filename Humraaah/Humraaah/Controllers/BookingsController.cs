@@ -17,6 +17,7 @@ namespace Humraaah.Controllers
         private HumraahContext db = new HumraahContext();
 
         // GET: Bookings
+        [OutputCache(Duration = 20, VaryByParam = "*")]
         [Authorize(Roles = "User")]
         public ActionResult Index()
         {
@@ -28,6 +29,48 @@ namespace Humraaah.Controllers
                       select bk;
 
             return View(bks.ToList());
+        }
+
+        [OutputCache(Duration = 20, VaryByParam = "*")]
+        public PartialViewResult GetAll()
+        {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            string strCurrentUserId = user.Id;
+            var bookings = db.Bookings.Include(b => b.Ambulance).Include(b => b.User_);
+            var bks = from bk in bookings
+                      where bk.User__id == strCurrentUserId
+                      select bk;
+            return PartialView("_Bookings", bks);
+        }
+
+        [OutputCache(Duration = 20, VaryByParam = "*")]
+        public PartialViewResult Current()
+        {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            string strCurrentUserId = user.Id;
+            var bookings = db.Bookings.Include(b => b.Ambulance).Include(b => b.User_);
+            var bks = from bk in bookings
+                      where bk.User__id == strCurrentUserId && bk.CurrentlyActive == true
+                      select bk;
+            return PartialView("_Bookings", bks);
+        }
+
+        public JsonResult GetBookings(string bookingFilter)
+        {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            string strCurrentUserId = user.Id;
+            var bookings = db.Bookings.Include(b => b.Ambulance).Include(b => b.User_);
+            var bks = from bk in bookings
+                      where bk.User__id == strCurrentUserId 
+                      select bk;
+            if (bookingFilter == "yes")
+            {
+
+                var x = bks.Where(y => y.CurrentlyActive == false).ToList();
+
+                return Json(x, JsonRequestBehavior.AllowGet);
+            }
+            return Json(bks.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         /*

@@ -36,6 +36,7 @@ namespace Humraaah.Controllers
         /// </summary>
         protected UserManager<ApplicationUser> UserManager { get; set; }
         */
+        [OutputCache(Duration = 20, VaryByParam = "*")]
         public ActionResult Index()
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());

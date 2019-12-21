@@ -52,12 +52,26 @@ namespace Humraaah.Controllers
             return View(ambulances.ToList());
         }
         */
-        [OutputCache(Duration = 60, VaryByParam ="*")]
+//        [OutputCache(Duration = 60, VaryByParam ="*")]
         public ActionResult Index(string locality, string Distance, string Organization)
         {
             var ambulances = from amb in db.Ambulances
                              where amb.Available == true
                              select amb;
+            if (Response.Cookies["Search"]["loc"] == null)
+            {
+                Response.Cookies["Search"]["loc"] = locality;
+            }
+
+            if (Response.Cookies["Search"]["dist"] == null)
+            {
+                Response.Cookies["Search"]["dist"] = Distance;
+            }
+
+            if (Response.Cookies["Search"]["org"] == null)
+            {
+                Response.Cookies["Search"]["org"] = Organization;
+            }
 
             var Locality = new List<string>();
 
@@ -134,6 +148,7 @@ namespace Humraaah.Controllers
             return View(ambulances.ToList());
 
         }
+
 
         public ActionResult SearchByLocalityName(string locality)
         {

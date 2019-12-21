@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Humraaah.Models.Booking>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ambulance.Driver.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Ambulance.Driver.Phone)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Ambulance.Color)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Ambulance.Plate)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentlyActive)
+        </th>
+
+        <th></th>
+    </tr>
+
+    <tbody id="bksList">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ambulance.Driver.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ambulance.Driver.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ambulance.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ambulance.Plate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentlyActive)
+                </td>
+
+                <td>
+                    @if (item.CurrentlyActive == true)
+                    {
+                        @Html.ActionLink("End Booking", "Edit", new { id = item.idBooking }, new { @class = "btn btn primary" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

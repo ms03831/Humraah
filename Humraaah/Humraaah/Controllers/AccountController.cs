@@ -220,7 +220,7 @@ namespace Humraaah.Controllers
                 User_ user = new User_ { id = user_id, CNIC = model.CNIC, Phone = model.Phone, Address_id = AdrId1 };
                 db.User_.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Contact", "Home");
+                return RedirectToAction("", "Home");
             }
             // If we got this far, something failed, redisplay form
             return View(model);

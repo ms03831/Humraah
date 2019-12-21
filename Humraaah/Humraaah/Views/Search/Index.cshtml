@@ -6,6 +6,7 @@
 
 <h2> Available Ambulances </h2>
 
+
 <table class="table">
     <tr>
         <th>
@@ -71,19 +72,19 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    Locality:    @Html.DropDownList("locality", (IEnumerable<SelectListItem>)ViewBag.locality, "", new { id = "locality" })
+                    Locality:    @Html.DropDownList("locality", (IEnumerable<SelectListItem>)ViewBag.locality, Response.Cookies["Search"]["loc"], new { id = "locality" })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-10">
-                    Sort results by distance:    @Html.DropDownList("Distance", (IEnumerable<SelectListItem>)ViewBag.Distance, "", new { id = "Distance" })
+                    Sort results by distance:    @Html.DropDownList("Distance", (IEnumerable<SelectListItem>)ViewBag.Distance, Response.Cookies["Search"]["dist"], new { id = "Distance" })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-10">
-                    Organization:    @Html.DropDownList("Organization", (IEnumerable<SelectListItem>)ViewBag.Organization, "", new { id = "Organization" })
+                    Organization:    @Html.DropDownList("Organization", (IEnumerable<SelectListItem>)ViewBag.Organization, Response.Cookies["Search"]["org"], new { id = "Organization" })
                 </div>
             </div>
 
