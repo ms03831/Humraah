@@ -31,10 +31,19 @@
                     <li>@Html.ActionLink("Book Ambulance", "Index", "Search")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-
-                        <li>@Html.ActionLink("View Your Bookings", "", "Bookings")</li>
+                        if (ViewBag.Role != null)
+                        {
+                            if (ViewBag.Role == 1)
+                            {
+                                <li>@Html.ActionLink("View Your Bookings", "", "Bookings")</li>
+                            }
+                            else if (ViewBag.Role == 2)
+                            {
+                                <li>@Html.ActionLink("Manage Ambulances", "", "Ambulances")</li>
+                            }
+                        }
                     }
-                </ul>
+                    </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
