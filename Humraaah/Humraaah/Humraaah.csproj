@@ -296,6 +296,7 @@
     <Content Include="Views\Bookings\Index.cshtml" />
     <Content Include="Views\Search\SearchByLocalityName.cshtml" />
     <Content Include="Views\Bookings\_Bookings.cshtml" />
+    <Content Include="Views\Bookings\FullBookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

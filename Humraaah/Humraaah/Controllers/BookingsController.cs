@@ -17,23 +17,56 @@ namespace Humraaah.Controllers
         private HumraahContext db = new HumraahContext();
 
         // GET: Bookings
-        [OutputCache(Duration = 20, VaryByParam = "*")]
+        //[OutputCache(Duration = 20, VaryByParam = "*")]
         [Authorize(Roles = "User")]
         public ActionResult Index()
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             string strCurrentUserId = user.Id;
+            HttpCookie cookie = Request.Cookies.Get("choice");
             var bookings = db.Bookings.Include(b => b.Ambulance).Include(b => b.User_);
+            if (cookie != null)
+            {
+                if (cookie.Value.ToString() == "current")
+                {
+                    var bks1 = from bk in bookings 
+                              where bk.User__id == strCurrentUserId && bk.CurrentlyActive == true
+                              select bk;
+                    return View("FullBookings", bks1);
+
+                }
+                else
+                {
+                    var bks2 = from bk in bookings
+                              where bk.User__id == strCurrentUserId
+                              select bk;
+                    return View("FullBookings", bks2);
+                }
+            }
             var bks = from bk in bookings
-                      where bk.User__id == strCurrentUserId
+                      where bk.User__id == strCurrentUserId 
                       select bk;
 
             return View(bks.ToList());
         }
 
-        [OutputCache(Duration = 20, VaryByParam = "*")]
+        [Authorize(Roles = "User")]
+        //[OutputCache(Duration = 20, VaryByParam = "*")]
         public PartialViewResult GetAll()
         {
+            HttpCookie cookie = Request.Cookies.Get("choice");
+            if (cookie != null)
+            {
+                cookie.Value = "all";
+            }
+            else
+            {
+                cookie = new HttpCookie("choice");
+                cookie.Value = "all";
+            }
+            cookie.Expires = DateTime.Now.AddDays(5);
+            Response.Cookies.Add(cookie);
+        
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             string strCurrentUserId = user.Id;
             var bookings = db.Bookings.Include(b => b.Ambulance).Include(b => b.User_);
@@ -43,9 +76,23 @@ namespace Humraaah.Controllers
             return PartialView("_Bookings", bks);
         }
 
-        [OutputCache(Duration = 20, VaryByParam = "*")]
+        [Authorize(Roles = "User")]
+        //[OutputCache(Duration = 20, VaryByParam = "*")]
         public PartialViewResult Current()
         {
+            HttpCookie cookie = Request.Cookies.Get("choice");
+            if (cookie != null)
+            {
+                cookie.Value = "current";
+            }
+            else
+            {
+                cookie = new HttpCookie("choice");
+                cookie.Value = "current";
+            }
+            cookie.Expires = DateTime.Now.AddDays(5);
+            Response.Cookies.Add(cookie);
+
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             string strCurrentUserId = user.Id;
             var bookings = db.Bookings.Include(b => b.Ambulance).Include(b => b.User_);
