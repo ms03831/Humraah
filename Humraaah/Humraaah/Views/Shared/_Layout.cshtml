@@ -28,20 +28,19 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Book Ambulance", "Index", "Search")</li>
+                    <li>@Html.ActionLink("Search Ambulance", "Index", "Search")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        if (ViewBag.Role != null)
-                        {
-                            if (ViewBag.Role == 1)
+
+                            if (User.IsInRole("User"))
                             {
                                 <li>@Html.ActionLink("View Your Bookings", "", "Bookings")</li>
                             }
-                            else if (ViewBag.Role == 2)
+                            if (User.IsInRole("Station"))
                             {
                                 <li>@Html.ActionLink("Manage Ambulances", "", "Ambulances")</li>
                             }
-                        }
+                        
                     }
                     </ul>
                 @Html.Partial("_LoginPartial")
