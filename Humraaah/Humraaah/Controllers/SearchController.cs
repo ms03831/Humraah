@@ -52,7 +52,7 @@ namespace Humraaah.Controllers
             return View(ambulances.ToList());
         }
         */
-//        [OutputCache(Duration = 60, VaryByParam ="*")]
+        [OutputCache(Duration = 60, VaryByParam ="*")]
         public ActionResult Index(string locality, string Distance, string Organization)
         {
             var ambulances = from amb in db.Ambulances
