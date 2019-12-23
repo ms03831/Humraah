@@ -176,8 +176,16 @@ namespace Humraaah.Controllers
             {
                 db.Entry(ambulance).State = EntityState.Modified;
                 db.SaveChanges();
+                var bks = db.Bookings.Where(x => x.Ambulance == ambulance);
+                foreach(var bk in bks)
+                {
+                    bk.CurrentlyActive = false;
+                }
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
+
             ViewBag.aType_id = new SelectList(db.aTypes, "id", "vehicleType", ambulance.aType_id);
             ViewBag.Driver_id = new SelectList(db.Drivers, "id", "id", ambulance.Driver_id);
             ViewBag.Station_id = new SelectList(db.Stations, "id", "Organization", ambulance.Station_id);

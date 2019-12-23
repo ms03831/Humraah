@@ -4,10 +4,16 @@
     ViewBag.Title = "Ambulances";
 }
 
+    <style>
+       
+    #tab tr td {
+    background-color: #ccccb3;
+}
+        </style>
 <h2> Available Ambulances </h2>
 
 
-<table class="table">
+<table class="table" id="tab">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.aType.vehicleType)
@@ -21,8 +27,16 @@
         <th>
             @Html.DisplayNameFor(model => model.aType.capacity)
         </th>
-        <th></th>
-    </tr>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (ViewBag.Role == 1)
+            {
+                <th>
+
+                </th>
+            }
+        }
+            </tr>
 
     @foreach (var item in Model)
     {
@@ -51,7 +65,7 @@
                     if (ViewBag.Role == 1)
                     {
                         <td>
-                            @Html.ActionLink("Book", "AmbulanceDetails", "Search", new { id = item.id }, new { @class = "btn btn-primary", @style = "color:Black" })
+                            @Html.ActionLink("Book", "AmbulanceDetails", "Search", new { id = item.id }, new { @class = "btn btn-primary", @style = "color:white;" })
                         </td>
                     }
                 }
@@ -88,7 +102,7 @@
                 </div>
             </div>
 
-            <input type="submit" id="filter" value="Filter" />
+            <input type="submit" class ="btn btn-primary" style="position:absolute; right:10%;" id="filter" value="Filter" />
         }
     }
 }

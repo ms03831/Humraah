@@ -8,18 +8,19 @@
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/Site.css")
     @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
-
+    <link rel="icon" href="bleh.ico">
 
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container ">
-            <div class="navbar-header">
+            <div class="navbar-header" style=" width: 20%;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
 
                 @Html.ActionLink("Humraah", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
@@ -32,27 +33,23 @@
                     @if (User.Identity.IsAuthenticated)
                     {
 
-                            if (User.IsInRole("User"))
-                            {
-                                <li>@Html.ActionLink("View Your Bookings", "", "Bookings")</li>
-                            }
-                            if (User.IsInRole("Station"))
-                            {
-                                <li>@Html.ActionLink("Manage Ambulances", "", "Ambulances")</li>
-                            }
-                        
+                        if (User.IsInRole("User"))
+                        {
+                            <li>@Html.ActionLink("View Your Bookings", "", "Bookings")</li>
+                        }
+                        if (User.IsInRole("Station"))
+                        {
+                            <li>@Html.ActionLink("Manage Ambulances", "", "Ambulances")</li>
+                        }
+
                     }
-                    </ul>
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Humraah</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

@@ -1,67 +1,73 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-    body {
-        margin: 0;
-    }
+    <html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <p class="lead" style="padding-top: 10%; font-family: Aharoni; font-weight: 20%; font-size: 300%;">Hum or Aap, Humraah!</p>
+    <img src="~/amb1.jpg" alt="Ambulance" style="max-width: 100%;
+    max-height: 100vh;
+    height: 100%;
+    width: 100%;">
 
-    .icon-bar {
-                 position: absolute;
-            top: 70%;
-        width: 100%;
-        background-color: #555;
-        overflow: auto;
-    }
-
-        .icon-bar a {
-   
-            float: left;
-            width: 20%;
-            text-align: center;
-            padding: 12px 0;
-            transition: all 0.3s ease;
-            color: white;
-            font-size: 36px;
+    <style>
+        body {
+            margin: 0;
         }
 
-            .icon-bar a:hover {
-                background-color: #000;
+        .icon-bar {
+            position: absolute;
+            top: 90%;
+            left: 26%;
+            width: 48%;
+            background-color: #800000;
+            overflow: auto;
+        }
+
+            .icon-bar a {
+                float: left;
+                width: 33%;
+                text-align: center;
+                padding: 12px 0;
+                transition: all 0.3s ease;
+                color: white;
+                font-size: 36px;
             }
 
-    .active {
-        background-color: #4CAF50;
-    }
-</style>
-<body>
+                .icon-bar a:hover {
+                    background-color: #000;
+                }
 
-    <div class="icon-bar">
-        <a class="active" href="#"><i class="fa fa-home"></i></a>
-        <a href="#"><i class="fa fa-search"></i></a>
-        <a href="#"><i class="fa fa-envelope"></i></a>
-        <a href="#"><i class="fa fa-globe"></i></a>
-        <a href="#"><i class="fa fa-trash"></i></a>
-    </div>
-
-
-
-
-
-<body class="jumbotron" style="background-image: url('handshake.png') ;">
-
-    <p class="lead" style="padding-top: 10%;">Hum or aap, Humraah!</p>
-    @{
-        if (!(User.Identity.IsAuthenticated))
-        {
-            <p class="btn-block" style="padding-top: 50px;"> To book or register an ambulance, @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary" })</p>
-            <p class="btn-block"> Already have an account? @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary" })</p>
+        .active {
+            background-color: #990000;
         }
-    }
-    <p class="btn-block"> Looking for an Ambulance? @Html.ActionLink("Search", "Index", "Search", null, new { @class = "btn btn-primary" })</p>
-</body>
+    </style>
+
+    <body class="jumbotron";">
+        @{
+            if (!(User.Identity.IsAuthenticated))
+            {
+                <div class="icon-bar">
+                    <a class="active" href="@Url.Action("Login", "Account")"><i class="fa fa-sign-in"></i></a>
+                    <a class="active" href="@Url.Action("", "Search")"><i class="fa fa-ambulance"></i></a>
+                    <a class="active" href="@Url.Action("Register", "Account")"><i class="fa fa-user-plus"></i></a>
+                </div>
+            }
+        }
+
+        @{
+            if (!(User.Identity.IsAuthenticated))
+            {
+                <!--          <p class="btn-block" style="padding-top: 2%;"> To book or register an ambulance, @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-primary" })</p>
+                          <p class="btn-block"> Already have an account? @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-primary" })</p>
+            -->
+            }
+            else
+            {
+                <p class="btn-block" style="position:absolute; top:90%; left:40%;"> <b> Looking for an Ambulance? </b> @Html.ActionLink("Search", "Index", "Search", null, new { @class = "btn btn-primary" })</p>
+            }
+        }
+    </body>
 
 
-</html>
+    </html>
