@@ -1,0 +1,7 @@
+Humraah - Project Completion Update:
+
+The project with all of its functionalities was fully implemented as mentioned in the proposal. We were also able to keep a track of
+history which is basically a User’s previous bookings and incorporate the functionality of allowing a user to sort available ambulances
+according to the distance from the user’s location. Both of these were not a part of the project scope initially defined. Project
+requirements including CSS, Custom routing, AJAX, Cookies, API, Caching, LINQ and authorized access were fully implemented and displayed 
+during the demo.
